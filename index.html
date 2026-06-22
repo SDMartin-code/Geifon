@@ -195,16 +195,15 @@
     background: var(--surface);
     border: 1px solid var(--border);
     position: relative;
-    min-height: 240px;
+    aspect-ratio: 7 / 5;
   }
 
   .hero-img-block img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
+    object-fit: contain;
+    object-position: center;
     display: block;
-    min-height: 240px;
   }
 
   .hero-img-label {
@@ -523,7 +522,7 @@
       <span class="hero-img-label">Booklgy</span>
     </div>
     <div class="hero-img-block">
-      <img src="images/meridianroles.png?v=2" alt="MeridianRoles — life sciences executive recruiting" style="object-position: top;">
+      <img src="images/meridianroles.png?v=2" alt="MeridianRoles — life sciences executive recruiting">
       <span class="hero-img-label">MeridianRoles</span>
     </div>
   </div>
