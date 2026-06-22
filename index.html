@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Geifon LLC — Software built for people with a real problem to solve.</title>
-<meta name="description" content="Geifon LLC builds practical software for consumers and businesses. Products include Booklgy, BookScoutIntel, RFPTrace, and more.">
+<meta name="description" content="Geifon LLC builds practical software for consumers and businesses. Products include Booklgy, MeridianRoles, RFPTrace, and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -182,7 +182,7 @@
   }
   .btn-ghost:hover { color: var(--ink); }
 
-  /* HERO VISUAL — two stacked screenshots */
+  /* HERO VISUAL — two product screenshots side by side */
   .hero-visual {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -195,10 +195,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     position: relative;
-  }
-
-  .hero-img-block:first-child {
-    grid-column: 1 / -1;
+    min-height: 240px;
   }
 
   .hero-img-block img {
@@ -207,6 +204,7 @@
     object-fit: cover;
     object-position: top;
     display: block;
+    min-height: 240px;
   }
 
   .hero-img-label {
@@ -528,10 +526,6 @@
       <img src="images/meridianroles.png" alt="MeridianRoles — life sciences executive recruiting">
       <span class="hero-img-label">MeridianRoles</span>
     </div>
-    <div class="hero-img-block">
-      <img src="images/bsi.png" alt="BookScoutIntel — real-time book sale map and listings" style="object-position: center;">
-      <span class="hero-img-label">BookScoutIntel</span>
-    </div>
   </div>
 </section>
 
@@ -597,36 +591,8 @@
     </div>
   </div>
 
-  <!-- BOOKSCOUTINTEL -->
-  <div class="product-row">
-    <div class="product-copy">
-      <div class="product-icon-wrap" style="background:var(--teal-bg);">
-        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
-        </svg>
-      </div>
-      <span class="product-status status-early">Early access</span>
-      <h2 class="product-name">BookScoutIntel</h2>
-      <p class="product-by">by Geifon</p>
-      <p class="product-desc">Real-time book sale intelligence for Amazon FBA resellers. Know which sales are worth the drive before you leave the house — ranked by quality, scored by inventory potential, and updated every few hours across all 50 states.</p>
-      <a href="https://www.bookscoutintel.com" class="product-link" target="_blank" rel="noopener">
-        bookscoutintel.com
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <div class="platform-chips">
-        <span class="chip">Web</span>
-        <span class="chip">Mobile app — coming soon</span>
-      </div>
-    </div>
-    <div class="product-media">
-      <img src="images/bsi.png" alt="BookScoutIntel showing a map of book sales across Massachusetts with filters">
-    </div>
-  </div>
-
   <!-- RFPTRACE -->
-  <div class="product-row reverse">
+  <div class="product-row">
     <div class="product-copy">
       <div class="product-icon-wrap" style="background:var(--blue-bg);">
         <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
@@ -660,7 +626,7 @@
   </div>
 
   <!-- BUDGETING APP -->
-  <div class="product-row">
+  <div class="product-row reverse">
     <div class="product-copy">
       <div class="product-icon-wrap" style="background:var(--green-bg);">
         <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
@@ -696,8 +662,8 @@
   <div class="about-inner">
     <h2 class="about-headline">Independent. Focused. Built to last.</h2>
     <div>
-      <p class="about-body">Geifon LLC is an independent software company. We do not chase trends or build features for the sake of them. Every product we ship starts with a specific, underserved problem and ends with something that earns its place on your phone or desktop because it genuinely earns it.</p>
-      <p class="about-body">Our products span personal organization, market intelligence, and enterprise workflow — connected by the same standard: useful on day one, worth paying for by month two.</p>
+      <p class="about-body">Geifon LLC is an independent software company. We do not chase trends or build features for the sake of them. Every product we ship starts with a specific, underserved problem and ends with something that earns its place on your phone, desktop, or desk because it genuinely earns it.</p>
+      <p class="about-body">Our products span consumer mobile, executive recruiting, and enterprise workflow — connected by the same standard: useful on day one, worth paying for by month two.</p>
     </div>
   </div>
 </section>
@@ -712,7 +678,6 @@
     <a href="mailto:support@geifon.com" class="footer-link">support@geifon.com</a>
     <a href="https://www.booklgy.com" class="footer-link">Booklgy</a>
     <a href="https://www.meridianroles.com" class="footer-link">MeridianRoles</a>
-    <a href="https://www.bookscoutintel.com" class="footer-link">BookScoutIntel</a>
     <a href="https://www.rfptrace.com" class="footer-link">RFPTrace</a>
   </div>
 </footer>
