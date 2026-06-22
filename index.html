@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geifon LLC — Software built for people with a real problem to solve.</title>
+<meta name="description" content="Geifon LLC builds practical software for consumers and businesses. Products include Booklgy, BookScoutIntel, RFPTrace, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:   #111110;
+    --white:   #FAFAF8;
+    --ink:     #2C2C2A;
+    --muted:   #888780;
+    --border:  #D3D1C7;
+    --surface: #F1EFE8;
+    --amber:   #BA7517;
+    --amber-bg:#FAEEDA;
+    --teal:    #0F6E56;
+    --teal-bg: #E1F5EE;
+    --blue:    #185FA5;
+    --blue-bg: #E6F1FB;
+    --green:   #3B6D11;
+    --green-bg:#EAF3DE;
+    --radius:  12px;
+    --nav-h:   64px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--black);
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--black);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-mark svg { width: 18px; height: 18px; fill: var(--white); }
+
+  .logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 500 !important;
+    transition: opacity 0.15s !important;
+  }
+  .nav-cta:hover { opacity: 0.82; }
+
+  /* HERO */
+  .hero {
+    padding: 100px 5% 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .hero-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1.1;
+    color: var(--black);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero-body {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    max-width: 460px;
+  }
+
+  .hero-body + .hero-body { margin-bottom: 36px; }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--black);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.8; }
+
+  .btn-ghost {
+    color: var(--muted);
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s;
+  }
+  .btn-ghost:hover { color: var(--ink); }
+
+  /* HERO VISUAL — two stacked screenshots */
+  .hero-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .hero-img-block {
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .hero-img-block:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .hero-img-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .hero-img-label {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink);
+    background: rgba(250,250,248,0.88);
+    padding: 3px 8px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* placeholder for missing images */
+  .img-placeholder {
+    aspect-ratio: 16/7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .img-placeholder p { font-size: 12px; color: var(--muted); }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 5%;
+  }
+
+  /* PRODUCTS */
+  .products {
+    padding: 80px 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 48px;
+  }
+
+  .product-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .product-row:last-child { border-bottom: 1px solid var(--border); }
+  .product-row.reverse .product-copy { order: 2; }
+  .product-row.reverse .product-media { order: 1; }
+
+  .product-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .product-icon-wrap svg { width: 22px; height: 22px; }
+
+  .product-status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .status-live  { background: var(--teal-bg);  color: var(--teal); }
+  .status-early { background: var(--amber-bg); color: var(--amber); }
+  .status-dev   { background: var(--surface);  color: var(--muted); }
+
+  .product-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .product-by {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+  }
+
+  .product-desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: border-color 0.15s;
+  }
+  .product-link:hover { border-color: var(--black); }
+
+  .product-link-disabled {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .platform-chips {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* product screenshots */
+  .product-media {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .product-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .product-media-placeholder {
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 24px;
+  }
+
+  .product-media-placeholder svg { width: 28px; height: 28px; }
+  .product-media-placeholder p { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.5; }
+
+  /* ABOUT */
+  .about {
+    background: var(--black);
+    color: var(--white);
+    padding: 80px 5%;
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--white);
+  }
+
+  .about-body {
+    font-size: 15px;
+    color: rgba(250,250,248,0.6);
+    line-height: 1.75;
+  }
+
+  .about-body + .about-body { margin-top: 16px; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .footer-meta { font-size: 13px; color: var(--muted); }
+
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .footer-link {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-link:hover { color: var(--ink); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; padding: 60px 5%; }
+    .hero-visual { grid-template-columns: 1fr; }
+    .hero-img-block:first-child { grid-column: 1; }
+    .product-row { grid-template-columns: 1fr; gap: 36px; }
+    .product-row.reverse .product-copy,
+    .product-row.reverse .product-media { order: unset; }
+    .about-inner { grid-template-columns: 1fr; gap: 32px; }
+    .nav-links { display: none; }
+  }
+
+  /* FADE IN */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow  { animation: fadeUp 0.5s ease both; }
+  .hero-headline { animation: fadeUp 0.5s ease 0.08s both; }
+  .hero-body     { animation: fadeUp 0.5s ease 0.16s both; }
+  .hero-actions  { animation: fadeUp 0.5s ease 0.22s both; }
+  .hero-visual   { animation: fadeUp 0.6s ease 0.1s both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="6" height="6" rx="1.5"/>
+        <rect x="10" y="2" width="6" height="6" rx="1.5"/>
+        <rect x="2" y="10" width="6" height="6" rx="1.5"/>
+        <rect x="10" y="10" width="6" height="6" rx="1.5" opacity="0.4"/>
+      </svg>
+    </div>
+    <span class="logo-text">Geifon</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="mailto:support@geifon.com">Contact</a></li>
+    <li><a href="mailto:support@geifon.com" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">Geifon LLC</p>
+    <h1 class="hero-headline">Software built for people with a <em>real problem</em> to solve.</h1>
+    <p class="hero-body">Geifon LLC is an independent software company building focused, practical applications for consumers and businesses. Every product starts with a specific, underserved problem.</p>
+    <p class="hero-body">No bloat. No feature theater. Just tools that earn their place.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">See our products</a>
+      <a href="mailto:support@geifon.com" class="btn-ghost">
+        Get in touch
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-img-block">
+      <img src="images/booklgy.png" alt="Booklgy — personal book library app">
+      <span class="hero-img-label">Booklgy</span>
+    </div>
+    <div class="hero-img-block">
+      <img src="images/meridianroles.png" alt="MeridianRoles — life sciences executive recruiting">
+      <span class="hero-img-label">MeridianRoles</span>
+    </div>
+    <div class="hero-img-block">
+      <img src="images/bsi.png" alt="BookScoutIntel — real-time book sale map and listings" style="object-position: center;">
+      <span class="hero-img-label">BookScoutIntel</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <p class="section-label">Our products</p>
+
+  <!-- BOOKLGY -->
+  <div class="product-row">
+    <div class="product-copy">
+      <div class="product-icon-wrap" style="background:var(--amber-bg);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      </div>
+      <span class="product-status status-live">Live on App Store</span>
+      <h2 class="product-name">Booklgy</h2>
+      <p class="product-by">by Geifon</p>
+      <p class="product-desc">Your personal book library, always in your pocket. Scan any barcode to log a book instantly, share your shelf with your household, and stop re-buying titles you already own — or gifting someone a book they have already read.</p>
+      <a href="https://www.booklgy.com" class="product-link" target="_blank" rel="noopener">
+        booklgy.com
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="platform-chips">
+        <span class="chip">iOS</span>
+        <span class="chip">Android — coming soon</span>
+      </div>
+    </div>
+    <div class="product-media">
+      <img src="images/booklgy.png" alt="Booklgy app showing a searchable personal book library">
+    </div>
+  </div>
+
+  <!-- MERIDIANROLES -->
+  <div class="product-row reverse">
+    <div class="product-copy">
+      <div class="product-icon-wrap" style="background:var(--blue-bg);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <span class="product-status status-live">Live</span>
+      <h2 class="product-name">MeridianRoles</h2>
+      <p class="product-by">by Geifon</p>
+      <p class="product-desc">Executive recruiting for life sciences and digital health. Connecting specialized talent with the companies building the next generation of therapeutics, diagnostics, and health technology — with the intelligence to match the right person to the right role.</p>
+      <a href="https://www.meridianroles.com" class="product-link" target="_blank" rel="noopener">
+        meridianroles.com
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="platform-chips">
+        <span class="chip">Web</span>
+        <span class="chip">Life Sciences &amp; Digital Health</span>
+      </div>
+    </div>
+    <div class="product-media">
+      <img src="images/meridianroles.png" alt="MeridianRoles — executive recruiting platform for life sciences">
+    </div>
+  </div>
+
+  <!-- BOOKSCOUTINTEL -->
+  <div class="product-row">
+    <div class="product-copy">
+      <div class="product-icon-wrap" style="background:var(--teal-bg);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
+        </svg>
+      </div>
+      <span class="product-status status-early">Early access</span>
+      <h2 class="product-name">BookScoutIntel</h2>
+      <p class="product-by">by Geifon</p>
+      <p class="product-desc">Real-time book sale intelligence for Amazon FBA resellers. Know which sales are worth the drive before you leave the house — ranked by quality, scored by inventory potential, and updated every few hours across all 50 states.</p>
+      <a href="https://www.bookscoutintel.com" class="product-link" target="_blank" rel="noopener">
+        bookscoutintel.com
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="platform-chips">
+        <span class="chip">Web</span>
+        <span class="chip">Mobile app — coming soon</span>
+      </div>
+    </div>
+    <div class="product-media">
+      <img src="images/bsi.png" alt="BookScoutIntel showing a map of book sales across Massachusetts with filters">
+    </div>
+  </div>
+
+  <!-- RFPTRACE -->
+  <div class="product-row reverse">
+    <div class="product-copy">
+      <div class="product-icon-wrap" style="background:var(--blue-bg);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      <span class="product-status status-dev">In development</span>
+      <h2 class="product-name">RFPTrace</h2>
+      <p class="product-by">by Geifon</p>
+      <p class="product-desc">End-to-end RFP lifecycle management for teams that respond to proposals at volume. Track requirements, coordinate contributors, reuse approved content, and document every vendor decision — without the chaos of shared folders and email threads.</p>
+      <a href="https://www.rfptrace.com" class="product-link" target="_blank" rel="noopener">
+        rfptrace.com
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="platform-chips">
+        <span class="chip">Web</span>
+      </div>
+    </div>
+    <div class="product-media">
+      <div class="product-media-placeholder">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+          </svg>
+        </div>
+        <p>Replace with RFPTrace<br>screenshot when ready</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUDGETING APP -->
+  <div class="product-row">
+    <div class="product-copy">
+      <div class="product-icon-wrap" style="background:var(--green-bg);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+        </svg>
+      </div>
+      <span class="product-status status-dev">In development</span>
+      <h2 class="product-name">Coming soon</h2>
+      <p class="product-by">by Geifon</p>
+      <p class="product-desc">A no-fuss budget tool built for students. Set your annual budget once, connect your debit card, and see exactly what you have left to spend each week — updated automatically every time you make a purchase.</p>
+      <span class="product-link-disabled">Coming soon</span>
+      <div class="platform-chips">
+        <span class="chip">iOS</span>
+        <span class="chip">Android</span>
+      </div>
+    </div>
+    <div class="product-media">
+      <div class="product-media-placeholder">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--green-bg);display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </div>
+        <p>Screenshot coming<br>when app is ready</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <h2 class="about-headline">Independent. Focused. Built to last.</h2>
+    <div>
+      <p class="about-body">Geifon LLC is an independent software company. We do not chase trends or build features for the sake of them. Every product we ship starts with a specific, underserved problem and ends with something that earns its place on your phone or desktop because it genuinely earns it.</p>
+      <p class="about-body">Our products span personal organization, market intelligence, and enterprise workflow — connected by the same standard: useful on day one, worth paying for by month two.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <a href="/" class="footer-brand">Geifon</a>
+    <span class="footer-meta">© 2026 Geifon LLC. Built in the USA.</span>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:support@geifon.com" class="footer-link">support@geifon.com</a>
+    <a href="https://www.booklgy.com" class="footer-link">Booklgy</a>
+    <a href="https://www.meridianroles.com" class="footer-link">MeridianRoles</a>
+    <a href="https://www.bookscoutintel.com" class="footer-link">BookScoutIntel</a>
+    <a href="https://www.rfptrace.com" class="footer-link">RFPTrace</a>
+  </div>
+</footer>
+
+</body>
+</html>
