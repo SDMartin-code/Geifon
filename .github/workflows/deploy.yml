@@ -1,0 +1,27 @@
+name: Deploy to Cloudflare Pages
+
+# Auto-deploy geifon.com on every push to main.
+#
+# Why this exists: the Cloudflare Pages git integration for this project was
+# created via API, which does not install the GitHub App webhook, so native
+# auto-deploy never fired. This workflow restores auto-deploy by POSTing to a
+# Cloudflare Pages Deploy Hook, which rebuilds the site from the latest commit
+# on main. The hook URL is stored in the CF_DEPLOY_HOOK_URL repo secret.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages build
+        run: |
+          echo "Triggering Cloudflare Pages deploy for ${GITHUB_SHA::8}..."
+          response=$(curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK_URL }}")
+          echo "Response: $response"
+          echo "$response" | grep -q '"success":true' || {
+            echo "Deploy hook did not report success"; exit 1; }
+          echo "Cloudflare Pages build queued successfully."
