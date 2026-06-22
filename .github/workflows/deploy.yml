@@ -22,6 +22,6 @@ jobs:
           echo "Triggering Cloudflare Pages deploy for ${GITHUB_SHA::8}..."
           response=$(curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK_URL }}")
           echo "Response: $response"
-          echo "$response" | grep -q '"success":true' || {
+          echo "$response" | grep -qE '"success":[[:space:]]*true' || {
             echo "Deploy hook did not report success"; exit 1; }
           echo "Cloudflare Pages build queued successfully."
