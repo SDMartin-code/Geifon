@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://geifon.com/sitemap.xml

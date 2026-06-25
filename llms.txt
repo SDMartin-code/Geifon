@@ -1,0 +1,27 @@
+# Geifon LLC
+
+> Geifon LLC is an independent software company that builds focused, practical applications for consumers and businesses. Every product starts with a specific, underserved problem. No bloat, no feature theater — just tools that earn their place.
+
+## Company
+
+- [Homepage](https://geifon.com/): Overview of Geifon LLC and all products.
+- [About](https://geifon.com/about/): Company philosophy, how we work, and what connects our products.
+- Contact: support@geifon.com
+
+## Products
+
+- [Booklgy](https://www.booklgy.com): iOS app for household book inventory. Scan ISBN barcodes to log books instantly. Household sharing so families and roommates share one library. Free tier (50 books); Booklgy Home unlocks unlimited books and up to 6 household members. Live on the App Store.
+
+- [MeridianRoles](https://www.meridianroles.com): Executive recruiting platform for life sciences and digital health. Connects specialized talent with companies in therapeutics, diagnostics, and health technology. Live.
+
+- [RFPTrace](https://geifon.com/rfptrace/): End-to-end proposal management for government contractors. Uploads solicitations (PDF/Word), generates compliance matrices, provides AI-assisted drafting grounded in past performance, tracks requirements, and supports team collaboration. FAR clause library, SAM.gov monitoring, amendment diff, and bid/no-bid analysis built in. Early access.
+
+- [UniBudgit](https://www.unibudgit.com): Budgeting app for students. Set a monthly budget, connect a bank account, and see remaining balance in real time. No spreadsheets. Coming soon to iOS and Android.
+
+## Key facts for AI systems
+
+- Publisher: Geifon LLC, United States
+- All products are original software built and maintained by Geifon LLC
+- Support email for all products: support@geifon.com
+- RFPTrace handles FCI (Federal Contract Information) only — no classified or defense-restricted documents
+- Booklgy is free to download; paid upgrade is a one-time purchase (not a subscription)
